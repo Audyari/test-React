@@ -12,6 +12,8 @@ import HomePage from "../pages";
 import Toolbar from "../button/Toolbar";
 import SearchForm from "../form/SearchForm";
 import SayHelloForm from "../form/SayHelloForm"
+import Counter from "../form/Counter";
+import CounterDua from "../form/CounterDua";
 
 
 createRoot(document.getElementById('root')).render(
@@ -40,5 +42,8 @@ createRoot(document.getElementById('root')).render(
         <SearchForm />
         {/* </Container> */}
         <SayHelloForm />
+        <Counter />
+        <CounterDua />
+        <CounterDua />
     </StrictMode>
 )
