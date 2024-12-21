@@ -9,8 +9,8 @@ export default function HelloWorld() {
     }
     return (
         <div>
-            {/* <HeaderHelloWorld {...props} />
-            <ParagrapHelloWord text="Paragrap Hello Word" /> */}
+            <HeaderHelloWorld {...props} />
+            <ParagrapHelloWord text="Paragrap Hello Word" />
             <Counter />
         </div>
     );
