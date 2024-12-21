@@ -9,6 +9,8 @@ import AlertButton2 from "../button/AlertButton2";
 import MyButton from "../button/MyButton";
 import Artikel from "../Componen/Artikel";
 import HomePage from "../pages";
+import Toolbar from "../button/Toolbar";
+import SearchForm from "../form/SearchForm";
 
 
 createRoot(document.getElementById('root')).render(
@@ -27,8 +29,14 @@ createRoot(document.getElementById('root')).render(
             <br />
             <Artikel name="WIYONO" titles={["DIKI", "EALAH", "FANTA"]} /> */}
 
-        <HomePage />
+        {/* <HomePage /> */}
 
+        <Toolbar onClick={(e) => {
+            e.stopPropagation();
+            alert("Toolbar clicked");
+        }} />
+
+        <SearchForm />
         {/* </Container> */}
     </StrictMode>
 )
