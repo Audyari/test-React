@@ -1,13 +1,13 @@
-export default function Todo({ text, isCompleted, isDeleted = false }) {
+export default function Todo({ text, isCompleted, isDeleted = true }) {
     if (isDeleted) {
         return null
     } else {
         return (
             <li>
-                {isCompleted ? <del> {text} </del> : text}
+                {isCompleted ? text : < del > {text} </del>}
                 {/* untuk nampilin emoji ketik windows + . */}
                 {isCompleted && ' ✅ '}
-            </li>
+            </li >
         )
     }
 }
