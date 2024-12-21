@@ -14,13 +14,17 @@ import SearchForm from "../form/SearchForm";
 import SayHelloForm from "../form/SayHelloForm"
 import Counter from "../form/Counter";
 import CounterDua from "../form/CounterDua";
+import CounterTiga from "../form/CounterTiga";
 
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
         {/* <Container> */}
+
         {/* <HelloWorld /> */}
+
         {/* <TodoList /> */}
+
         {/* <Table /> */}
 
         {/* <AlertButton text="TEST ALLERT BUTTON" />
@@ -34,16 +38,22 @@ createRoot(document.getElementById('root')).render(
 
         {/* <HomePage /> */}
 
-        <Toolbar onClick={(e) => {
+        {/* <Toolbar onClick={(e) => {
             e.stopPropagation();
             alert("Toolbar clicked");
         }} />
 
-        <SearchForm />
+        <SearchForm /> */}
+
         {/* </Container> */}
-        <SayHelloForm />
-        <Counter />
+
+        {/* <SayHelloForm />
+     
+         <Counter />*/}
+
         <CounterDua />
         <CounterDua />
+
+        <CounterTiga />
     </StrictMode>
 )

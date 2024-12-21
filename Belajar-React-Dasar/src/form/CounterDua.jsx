@@ -3,13 +3,19 @@ import { useState } from "react";
 export default function CounterDua() {
     const [Counter, setCounter] = useState(0);
 
+    console.log(`render ${Counter} `)
+
     function handleClick() {
         setCounter(Counter + 1);
         console.log(Counter + 1);
     }
 
     function handleClickDua() {
-        setCounter(Counter - 1);
+        setCounter(prevCounter => {
+            const newCounter = prevCounter - 1;
+            console.log(newCounter);
+            return newCounter;
+        });
     }
 
     return (
