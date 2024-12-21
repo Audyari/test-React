@@ -35,14 +35,11 @@ export default function TodoList() {
         }
     ]
 
-    const todos = data.map(todo => (
-        <Todo key={todo.id} {...todo} />
-    ));
-
-
     return (
         <ul>
-            {todos}
+            {data.map(todo => (
+                <Todo key={todo.id} {...todo} />
+            ))}
         </ul>
     )
 }
