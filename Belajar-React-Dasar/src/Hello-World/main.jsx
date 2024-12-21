@@ -11,6 +11,7 @@ import Artikel from "../Componen/Artikel";
 import HomePage from "../pages";
 import Toolbar from "../button/Toolbar";
 import SearchForm from "../form/SearchForm";
+import SayHelloForm from "../form/SayHelloForm"
 
 
 createRoot(document.getElementById('root')).render(
@@ -38,5 +39,6 @@ createRoot(document.getElementById('root')).render(
 
         <SearchForm />
         {/* </Container> */}
+        <SayHelloForm />
     </StrictMode>
 )
