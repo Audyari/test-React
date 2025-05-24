@@ -17,7 +17,7 @@ function Header() {
     const header = "Hello World"
 
     return (
-        <h1 style={{ color: 'red', backgroundColor: 'black', padding: '10px' }}>
+        <h1 style={{ color: 'red', backgroundColor: 'blue', padding: '10px' }}>
             {header.toUpperCase()}
         </h1>
     )
@@ -29,7 +29,7 @@ function Paragrap() {
     
     const style = {
         color: 'blue',
-        backgroundColor: 'yellow',
+        backgroundColor: 'aqua',
         padding: '10px'
     }
 

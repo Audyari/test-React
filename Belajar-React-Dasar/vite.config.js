@@ -13,7 +13,8 @@ export default defineConfig({
         contact: "contact.html",
         task: "task.html",
         componenn: "componenn.html",
-        javascript_di_jsx: "JavaScriptdiJSX.html"
+        javascript_di_jsx: "JavaScriptdiJSX.html",
+        props: "Props.html"
       }
     }
   }

@@ -1,0 +1,42 @@
+@startuml
+start
+
+:Impor modul yang diperlukan:
+- @eslint/js
+- globals
+- eslint-plugin-react
+- eslint-plugin-react-hooks
+- eslint-plugin-react-refresh;
+
+:Ekspor konfigurasi ESLint array;
+
+:Konfigurasi 1:
+- Ignore folder 'dist';
+
+:Konfigurasi 2:
+- File: **/*.{js,jsx}
+- ECMAScript 2020
+- Global: Browser
+- Parser Options:
+  - ECMA Version: latest
+  - JSX: true
+  - Source Type: module;
+
+:Atur React version: 18.3;
+
+:Aktifkan plugin:
+- react
+- react-hooks
+- react-refresh;
+
+:Terapkan aturan:
+- react-refresh/only-export-components
+- react-refresh/only-export-components: error
+- react/jsx-uses-react: error
+- react/jsx-uses-vars: error
+- react-hooks/rules-of-hooks: error
+- react-hooks/exhaustive-deps: warn;
+
+stop
+
+@enduml

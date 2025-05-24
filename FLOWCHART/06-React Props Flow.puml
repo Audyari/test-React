@@ -1,0 +1,53 @@
+@startuml
+start
+
+:Inisialisasi props \n text = "Hello World";
+:Inisialisasi props2 \n text = "Paragrap Hello World";
+
+:Render Fragment <>;
+
+:Render HeaderHelloWorld {...props};
+:Masuk fungsi HeaderHelloWorld;
+
+if (text tersedia?) then (ya)
+  :Gunakan text dari props;
+else
+  :Gunakan default "Ups, lupa kasih text";
+endif
+
+:Set style (merah, biru, padding);
+:Ubah text ke HURUF BESAR;
+:Tampilkan <h1>;
+
+:Kembali ke HelloWorldd;
+
+:Render Paragrap {...props2} (pertama);
+:Masuk fungsi Paragrap;
+
+if (text tersedia?) then (ya)
+  :Gunakan text dari props2;
+else
+  :Gunakan default "Ups, lupa kasih text";
+endif
+
+:Set style (biru, aqua, padding);
+:Ubah text ke HURUF BESAR;
+:Tampilkan <p>;
+
+:Kembali ke HelloWorldd;
+
+:Render Paragrap {...props2} (kedua);
+:Masuk fungsi Paragrap;
+
+if (text tersedia?) then (ya)
+  :Gunakan text dari props2;
+else
+  :Gunakan default "Ups, lupa kasih text";
+endif
+
+:Set style (biru, aqua, padding);
+:Ubah text ke HURUF BESAR;
+:Tampilkan <p>;
+
+stop
+@enduml
