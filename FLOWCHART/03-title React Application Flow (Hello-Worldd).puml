@@ -1,0 +1,41 @@
+@startuml
+left to right direction
+
+title React Application Flow (Hello-Worldd)
+
+[Vite Config] as config
+[Hello-Worldd.html] as html
+[main.jsx] as main
+[HelloWorldd.jsx] as component
+
+config --> html : "hello_world_doble_d" entry
+html --> main : loads
+main --> component : imports and renders
+
+note right of config
+  vite.config.js
+  Defines build entry points
+  including "Hello-Worldd.html"
+end note
+
+note right of html
+  Entry HTML file
+  Mounts React to #root
+  Loads main.jsx
+end note
+
+note right of main
+  main.jsx
+  Sets up React root
+  Renders HelloWorldd
+  Uses StrictMode
+end note
+
+note right of component
+  HelloWorldd.jsx
+  Functional component
+  Returns JSX with
+  heading and paragraph
+end note
+
+@enduml

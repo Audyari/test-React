@@ -9,6 +9,7 @@ export default defineConfig({
       input: {
         index: "index.html",
         hello_world: "Hello-World.html",
+        hello_world_doble_d: "Hello-Worldd.html",
         contact: "contact.html",
         task: "task.html"
       }

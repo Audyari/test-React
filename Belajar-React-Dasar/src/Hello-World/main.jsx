@@ -51,9 +51,11 @@ createRoot(document.getElementById('root')).render(
      
          <Counter />*/}
 
-        <CounterDua />
+        <HomePage />
+
+        {/* <CounterDua />
         <CounterDua />
 
-        <CounterTiga />
+        <CounterTiga /> */}
     </StrictMode>
 )

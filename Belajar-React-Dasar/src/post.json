@@ -25,5 +25,32 @@
         ],
         "date": "2023-01-03",
         "isNew": false
+    },
+    {
+        "title": "Meningkatkan performa di reactjs",
+        "tags": [
+            "react",
+            "frontend"
+        ],
+        "date": "2023-01-02",
+        "isNew": false
+    },
+    {
+        "title": "Meningkatkan performa di reactjs",
+        "tags": [
+            "react",
+            "frontend"
+        ],
+        "date": "2023-01-02",
+        "isNew": false
+    },
+    {
+        "title": "Meningkatkan performa di reactjs",
+        "tags": [
+            "react",
+            "frontend"
+        ],
+        "date": "2023-01-02",
+        "isNew": false
     }
 ]

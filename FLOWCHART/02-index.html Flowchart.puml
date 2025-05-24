@@ -1,0 +1,19 @@
+@startuml
+start
+
+:index.html;
+
+partition "Head" {
+    :Meta Charset;
+    :Favicon;
+    :Viewport;
+    :Title;
+}
+
+partition "Body" {
+    :Root Div (id="root");
+    :Load main.jsx;
+}
+
+stop
+@enduml

@@ -1,0 +1,64 @@
+@startuml package.json Flowchart
+left to right direction
+skinparam backgroundColor #f8f9fa
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam defaultTextAlignment center
+skinparam roundcorner 10
+skinparam shadowing false
+
+title Package.json Structure
+
+package "Project Configuration" as config {
+  [Project Name: belajar-react-dasar]
+  [Version: 0.0.0]
+  [Type: module]
+  [Private: true]
+}
+
+package "Scripts" as scripts {
+  [dev: vite]
+  [build: vite build]
+  [lint: eslint .]
+  [preview: vite preview]
+}
+
+package "Dependencies" as deps {
+  [react@19.0.0]
+  [react-dom@19.0.0]
+  [@mui/material@6.2.1]
+  [bootstrap@5.3.3]
+  [immer@10.1.1]
+  [use-immer@0.11.0]
+  [@emotion/react@11.14.0]
+  [@emotion/styled@11.14.0]
+}
+
+package "Dev Dependencies" as devDeps {
+  [@vitejs/plugin-react@4.3.4]
+  [vite@6.0.3]
+  [eslint@9.17.0]
+  [@eslint/js@9.17.0]
+  [eslint-plugin-react@7.37.2]
+  [eslint-plugin-react-hooks@5.0.0]
+  [eslint-plugin-react-refresh@0.4.16]
+  [@types/react@19.0.2]
+  [@types/react-dom@19.0.2]
+  [globals@15.13.0]
+}
+
+config --> scripts : contains
+config --> deps : contains
+config --> devDeps : contains
+
+note right of deps
+  Main application
+  dependencies
+end note
+
+note left of devDeps
+  Development
+  dependencies
+end note
+
+@enduml
