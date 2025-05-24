@@ -1,0 +1,43 @@
+@startuml
+left to right direction
+
+title Component Structure Flow
+
+[vite.config.js] as config
+[componenn.html] as html
+[main.jsx] as main
+[HelloWorldd.jsx] as component
+
+config --> html : "componenn" entry point
+html --> main : loads
+main --> component : imports and renders
+
+note right of config
+  vite.config.js
+  Defines build entry points
+  including "componenn.html"
+end note
+
+note right of html
+  componenn.html
+  Entry HTML file
+  Mounts React to #root
+  Loads /src/componenn/main.jsx
+end note
+
+note right of main
+  main.jsx
+  Sets up React root
+  Renders HelloWorldd
+  Uses StrictMode
+end note
+
+note right of component
+  HelloWorldd.jsx
+  - Main component
+  - Contains Header
+  - Contains 2x Paragrap
+  - All in same file
+end note
+
+@enduml

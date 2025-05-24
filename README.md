@@ -9,3 +9,5 @@
 8. https://www.npmjs.com/package/react-dom 
 9. digunakan untuk membuild project
 10. npm run build
+11. link untuk mengubah html ke jsx
+12. https://transform.tools/html-to-jsx 

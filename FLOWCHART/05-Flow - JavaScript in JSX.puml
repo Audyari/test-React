@@ -1,0 +1,50 @@
+@startuml React Application Flow
+
+skinparam componentStyle uml2
+skinparam backgroundColor #F8F8F8
+skinparam defaultFontName Arial
+skinparam defaultFontSize 14
+
+title React Application Flow - JavaScript in JSX
+
+' Define components
+component "JavaScriptdiJSX.html" as html {
+    [index.html] as index
+    [main.jsx] as main
+    [HelloWorldd.jsx] as hello
+    [Header] as header
+    [Paragraph] as paragraph
+}
+
+' Define relationships
+index --> main : Loads
+main --> hello : Imports and Renders
+hello --> header : Renders
+hello --> paragraph : Renders (x2)
+
+' Add notes
+note right of hello
+  Main component that composes
+  the UI by combining Header
+  and Paragraph components
+end note
+
+note right of header
+  Displays "HELLO WORLD" in red
+  with black background
+end note
+
+note right of paragraph
+  Displays "PARAGRAPH HELLO WORLD"
+  in blue with yellow background
+  (rendered twice)
+end note
+
+' Add styling
+skinparam component {
+    BackgroundColor #E3F2FD
+    BorderColor #1976D2
+    ArrowColor #1976D2
+}
+
+@enduml
