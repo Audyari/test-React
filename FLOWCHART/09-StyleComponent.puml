@@ -1,0 +1,36 @@
+@startuml StyleComponent
+
+component [Style.html] as html
+component [main.jsx] as main
+component [HelloWorld.jsx] as hw
+component [HelloWorld.css] as css
+
+html --> main : loads
+main --> hw : renders
+hw --> css : imports styles
+
+note right of html
+  Entry point
+  Mounts to #root
+end note
+
+note right of main
+  Renders:
+  - StrictMode
+  - HelloWorld
+end note
+
+note right of hw
+  Contains:
+  - h1 with class "title"
+  - p with class "content"
+end note
+
+note right of css
+  Styles:
+  .title: red text, blue bg
+  .content: blue text, aqua bg
+  Both have 10px padding
+end note
+
+@enduml

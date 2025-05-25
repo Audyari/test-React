@@ -14,7 +14,10 @@ export default defineConfig({
         task: "task.html",
         componenn: "componenn.html",
         javascript_di_jsx: "JavaScriptdiJSX.html",
-        props: "Props.html"
+        props: "Props.html",
+        nested_component: "NestedComponent.html",
+        style: "Style.html",
+        conditional: "Conditional.html"
       }
     }
   }

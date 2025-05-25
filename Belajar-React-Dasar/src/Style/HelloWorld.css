@@ -1,0 +1,10 @@
+.title {
+    color: red;
+    background-color: blue;
+    padding: 10px;
+}
+.content {
+    color: blue;
+    background-color: aqua;
+    padding: 10px;
+}

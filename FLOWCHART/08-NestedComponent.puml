@@ -1,0 +1,34 @@
+@startuml NestedComponent
+
+component [App] as app #ff9999
+component [Container] as container #99ccff
+component [HelloWorld] as hw #99ff99
+component [HelloWorld2] as hw2 #99ff99
+component [Header] as header #ffff99
+component [Paragrap] as paragrap1 #ffff99
+component [Paragrap] as paragrap2 #ffff99
+
+app --> container : renders
+container --> hw : children
+container --> hw2 : children
+hw --> header : renders
+hw --> paragrap1 : renders
+hw --> paragrap2 : renders
+
+note right of hw
+  Contains:
+  - Header
+  - 2x Paragrap
+end note
+
+note right of hw2
+  Simple component
+  with just an h1 tag
+end note
+
+note right of container
+  Wraps children with
+  a header and footer
+end note
+
+@enduml

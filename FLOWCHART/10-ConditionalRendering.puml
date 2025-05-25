@@ -1,0 +1,47 @@
+@startuml ConditionalRendering
+
+component [Conditional.html] as html
+component [main.jsx] as main
+component [TodoList.jsx] as todoList
+component [Todo.jsx] as todo
+component [TernaryOperator.jsx] as ternary
+component [LogicalAnd.jsx] as logical
+
+html --> main : loads
+main --> todoList : renders
+
+todoList --> todo : renders x5
+todoList --> ternary : renders x1
+todoList --> logical : renders x1
+
+note right of todoList
+  Renders:
+  - 5x Todo components
+  - 1x TernaryOperator
+  - 1x LogicalAnd
+end note
+
+note right of todo
+  Conditional rendering:
+  if isDelete:
+    return null
+  else if isCompleted:
+    <del>{text}</del>
+  else:
+    {text}
+end note
+
+note right of ternary
+  Uses ternary operator:
+  {isCompleted ? 
+    <del>{text}</del> : 
+    <b>{text}</b>}
+end note
+
+note right of logical
+  Uses logical AND:
+  {text} {isCompleted && 
+    <span>✅</span>}
+end note
+
+@enduml
