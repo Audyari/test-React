@@ -1,0 +1,47 @@
+@startuml
+start
+
+:Render Komponen Utama;
+note right
+  - SearchForm
+  - Toolbar dengan prop onClick
+end note
+
+:Render SearchForm;
+:Render Form dengan input dan button;
+
+if (User mengklik Search button?) then (Ya)
+  :Trigger event onClick;
+  :Jalankan preventDefault();
+  :Tampilkan alert('Search');
+  :Tampilkan log 'Search' di console;
+else (Tidak)
+  :Tunggu interaksi user;
+endif
+
+:Render Toolbar;
+:Render Div dengan event onClick;
+:Render Button "First" dengan event onClick;
+:Render Button "Second" dengan event onClick;
+
+if (User mengklik Button "First" atau "Second"?) then (Ya)
+  :Trigger event onClick button;
+  :Jalankan e.stopPropagation();
+  :Hentikan propagasi event ke parent;
+  :Tampilkan alert('Click');
+else (Tidak)
+  :Tunggu interaksi user;
+endif
+
+if (User mengklik area Div di luar button?) then (Ya)
+  :Trigger event onClick Div;
+  :Tampilkan alert('Click');
+  note right
+    Hanya terjadi jika event propagation
+    tidak dihentikan
+  end note
+endif
+
+stop
+
+@enduml

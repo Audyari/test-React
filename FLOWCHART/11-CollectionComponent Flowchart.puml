@@ -1,0 +1,25 @@
+@startuml
+
+' Komponen Utama
+rectangle "index.html" as index
+rectangle "main.jsx" as main
+rectangle "TodoList.jsx" as todo
+rectangle "TodoList copy.jsx" as todo_copy
+
+' Alur
+index --> main
+main --> todo
+main --> todo_copy
+
+' Deskripsi
+note right of todo
+  - Menampilkan daftar todo
+  - Menggunakan array map
+  - Setiap item memiliki:
+    * id
+    * text
+    * isCompleted
+    * isDelete (opsional)
+end note
+
+@enduml

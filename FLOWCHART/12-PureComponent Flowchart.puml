@@ -1,0 +1,49 @@
+@startuml PureComponent Flowchart
+
+' Define styles and colors
+skinparam backgroundColor #f9f9f9
+skinparam componentStyle uml2
+skinparam defaultFontName Arial
+
+' Define components
+component "main.jsx" as main #LightBlue
+component "Table.jsx" as table #LightGreen
+component "Row.jsx" as row #LightPink
+component "Row1.jsx" as row1 #LightSalmon
+
+database "Browser" as browser #LightGrey
+
+' Define the flow
+main --> table : Renders <Table />
+
+' Table component renders multiple Rows
+table --> row : Renders <Row text={...} />
+table --> row1 : Renders <Row1 text={...} />
+
+' Data flow
+main --> table : No props
+
+' Table data
+note right of table
+  Renders a table with
+  multiple Row components
+  inside tbody
+end note
+
+' Row component details
+note right of row
+  Uses a counter variable
+  to track renders
+  Displays counter + name
+end note
+
+' Row1 component details
+note right of row1
+  Pure functional component
+  Displays id + name
+end note
+
+' Final output
+table --> browser : Renders HTML Table
+
+@enduml

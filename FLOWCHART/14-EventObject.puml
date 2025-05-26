@@ -1,0 +1,34 @@
+@startuml
+start
+
+:Render Komponen AlertButton;
+note right
+  Menerima props:
+  - text: "TEST ALLERT BUTTON"
+  - message: "INI MASSEGE ALLERT"
+end note
+
+:Menampilkan Button dengan text "TEST ALLERT BUTTON";
+
+if (User mengklik button?) then (Ya)
+  :Trigger event onClick;
+  :Jalankan fungsi handleClick;
+  
+  :Tampilkan event object di console;
+  note right
+    - Event object (e)
+    - e.target
+    - e.target.textContent
+    - e.target.value
+    - e.target.innerHTML
+  end note
+  
+  :Tampilkan alert dengan pesan "INI MASSEGE ALLERT";
+else (Tidak)
+  :Tunggu interaksi user;
+  stop
+endif
+
+stop
+
+@enduml

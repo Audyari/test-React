@@ -17,7 +17,12 @@ export default defineConfig({
         props: "Props.html",
         nested_component: "NestedComponent.html",
         style: "Style.html",
-        conditional: "Conditional.html"
+        conditional: "Conditional.html",
+        collection_component: "CollectionComponent.html",
+        pure_component: "PureComponent.html",
+        event_handler: "EventHandler.html",
+        event_object: "EventObject.html",
+        event_propagation: "EventPropagation.html"
       }
     }
   }

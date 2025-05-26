@@ -1,0 +1,49 @@
+@startuml Event Handler Flowchart
+
+' Define styles
+skinparam backgroundColor #f0f8ff
+skinparam componentStyle uml2
+skinparam defaultFontName Arial
+
+' Define components
+component "main.jsx" as main #LightBlue
+component "AlertButton.jsx" as alertBtn #LightPink
+component "AlertButton1.jsx" as alertBtn1 #LightSalmon
+component "MyButton.jsx" as myBtn #LightGreen
+database "Browser" as browser #LightGrey
+
+' Main component renders all buttons
+main --> alertBtn : Renders <AlertButton />\n(no props)
+main --> alertBtn1 : Renders <AlertButton1 \ntext=\"TEST ALLERT BUTTON\"\nmessage=\"INI MASSEGE ALLERT\" /> 
+main --> myBtn : Renders <MyButton \ntext=\"TEST ONSMASH\"\nonSmash={() => alert(\"YOU SMASH ME\")} />
+
+' AlertButton implementation
+note right of alertBtn
+  Simple button dengan
+  event handler inline
+  yang menampilkan
+  alert("Clicked!")
+end note
+
+' AlertButton1 implementation
+note right of alertBtn1
+  Menerima 2 props:
+  - text: untuk teks tombol
+  - message: untuk pesan alert
+end note
+
+' MyButton implementation
+note right of myBtn
+  Menerima 2 props:
+  - text: untuk teks tombol
+  - onSmash: function yang
+    dijalankan saat tombol
+    diklik
+end note
+
+' Event flow
+alertBtn --> browser : onClick\nMenampilkan "Clicked!"
+alertBtn1 --> browser : onClick\nMenampilkan props.message
+myBtn --> browser : onClick\nMenjalankan props.onSmash()
+
+@enduml
