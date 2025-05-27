@@ -1,0 +1,43 @@
+@startuml React State Flowchart
+
+skinparam monochrome true
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam roundcorner 5
+
+title Perbandingan State Management di React
+
+start
+
+:Render Komponen;
+note right
+  Kedua komponen (Salah & Benar)
+  di-render oleh main.jsx
+endnote
+
+if (Komponen CounterSalah?) then (ya)
+  :Inisialisasi variabel count = 0;
+  :Tampilkan UI dengan count = 0;
+  
+  repeat
+    :User klik tombol Increment;
+    :count dinaikkan (count++);
+    :Tampilan tidak berubah;
+    :Nilai count di console bertambah;
+  repeat while (User klik tombol lagi?) is (Ya) 
+  stop
+else (tidak - Komponen CounterBenar)
+  :Inisialisasi state dengan useState(0);
+  :Tampilkan UI dengan count = 0;
+  
+  repeat
+    :User klik tombol Increment;
+    :Panggil setCount(count + 1);
+    :Re-render komponen;
+    :Tampilkan count yang baru;
+    :Nilai count di console bertambah;
+  repeat while (User klik tombol lagi?) is (Ya)
+  stop
+endif
+
+@enduml

@@ -1,0 +1,58 @@
+@startuml React State Object Management Comparison
+
+skinparam monochrome true
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam roundcorner 5
+
+title Perbandingan Manajemen State Object di React
+
+start
+
+:Render Awal Kedua Komponen;
+note right
+  State awal keduanya:
+  {
+    name: "",
+    message: ""
+  }
+endnote
+
+if (Menggunakan useState + Spread) then (ya)
+  :User mengetik di input;
+  :Trigger handleChange;
+  :Buat object state baru;
+  :Salin semua properti (...stateSebelumnya);
+  :Update properti yang berubah;
+  :Re-render komponen;
+  :Tampilkan nilai baru;
+  
+  note right
+    Contoh kode:
+    setContact(stateSebelumnya => ({
+      ...stateSebelumnya,
+      name: e.target.value
+    }));
+  endnote
+else (Menggunakan useImmer)
+  :User mengetik di input;
+  :Trigger handleChange;
+  :Gunakan "draft" state;
+  :Update properti secara langsung;
+  :Immer otomatis buat salinan;
+  :Re-render komponen;
+  :Tampilkan nilai baru;
+  
+  note right
+    Contoh kode:
+    updateContact(draft => {
+      draft.name = e.target.value;
+    });
+  endnote
+endif
+
+:Submit Form;
+:Log state terakhir ke console;
+stop
+
+@enduml

@@ -1,0 +1,54 @@
+@startuml React State Updates with Functional Updates
+
+skinparam monochrome true
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam roundcorner 5
+
+title State Updates dengan Functional Updates di React
+
+start
+
+:Render Awal Komponen;
+note right
+  Komponen di-render
+  dengan count = 0
+endnote
+
+:User klik tombol "Increment +3";
+:Eksekusi onClick handler;
+
+:setCount(c => c + 1);
+note right
+  Functional update
+  c = 0 (nilai saat ini)
+  return 1
+endnote
+
+:setCount(c => c + 1);
+note right
+  Functional update
+  c = 1 (nilai dari update sebelumnya)
+  return 2
+endnote
+
+:setCount(c => c + 1);
+note right
+  Functional update
+  c = 2 (nilai dari update sebelumnya)
+  return 3
+endnote
+
+:console.log("count 0");
+note right
+  Nilai count di console
+  menunjukkan 0 karena
+  belum terjadi re-render
+endnote
+
+:Re-render komponen;
+:Update UI dengan count = 3;
+
+stop
+
+@enduml

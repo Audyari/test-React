@@ -1,0 +1,60 @@
+@startuml React State Update Flow
+
+skinparam monochrome true
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam roundcorner 5
+
+title Perbandingan State Update di React
+
+start
+
+:Render Awal Komponen;
+note right
+  Kedua komponen di-render
+  dengan count = 0
+endnote
+
+if (Komponen Counter?) then (ya)
+  :Tampilkan UI dengan count = 0;
+  
+  repeat
+    :User klik tombol "Increment +3";
+    :Eksekusi onClick handler;
+    
+    :setCount(count + 1);  // count = 0
+    :setCount(count + 1);  // count masih 0
+    :setCount(count + 1);  // count masih 0
+    :console.log("count 0");
+    
+    :Re-render komponen;
+    :Update UI dengan count = 1;
+    note right
+      Hanya bertambah 1 karena
+      semua setCount menggunakan
+      nilai count yang sama (0)
+    endnote
+  repeat while (User klik tombol lagi?) is (Ya) 
+  stop
+else (tidak - Komponen Counter Copy)
+  :Tampilkan UI dengan count = 0;
+  
+  repeat
+    :User klik tombol "Increment +3";
+    :Eksekusi onClick handler;
+    
+    :setCount(count + 3);  // count = 0 + 3
+    :console.log("count 0");
+    
+    :Re-render komponen;
+    :Update UI dengan count = 3;
+    note right
+      Langsung bertambah 3
+      karena langsung menambah 3
+      dalam satu setCount
+    endnote
+  repeat while (User klik tombol lagi?) is (Ya)
+  stop
+endif
+
+@enduml

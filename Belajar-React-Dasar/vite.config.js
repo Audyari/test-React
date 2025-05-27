@@ -22,7 +22,12 @@ export default defineConfig({
         pure_component: "PureComponent.html",
         event_handler: "EventHandler.html",
         event_object: "EventObject.html",
-        event_propagation: "EventPropagation.html"
+        event_propagation: "EventPropagation.html",
+        side_effect: "SideEffect.html",
+        state: "State.html",
+        snapshot: "Snapshot.html",
+        state_updates: "StateUpdates.html",
+        object_di_state: "ObjectdiState.html"
       }
     }
   }

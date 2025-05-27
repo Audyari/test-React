@@ -1,0 +1,24 @@
+@startuml React SideEffect Flow
+
+start
+
+:User membuka halaman;
+note right
+  Komponen SayHelloForm di-render
+  dengan teks default "Hello World"
+end note
+
+:User mengisi input nama;
+:User menekan tombol "Say Hello";
+
+if (Input nama kosong?) then (Ya)
+  :Tampilkan "Hello World";
+  stop
+else (Tidak)
+  :Ambil nilai dari input;
+  :Update teks menjadi "Hello [nama]";
+  :Tampilkan teks yang sudah diupdate;
+  stop
+endif
+
+@enduml
