@@ -1,0 +1,56 @@
+@startuml Array State Management with useImmer
+
+skinparam monochrome true
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam roundcorner 5
+
+title Manajemen Array State dengan useImmer
+
+start
+
+:Render Awal Komponen;
+note right
+  State Awal:
+  - item: "" (string kosong)
+  - items: [] (array kosong)
+endnote
+
+:User mengetik di input;
+:Trigger handleChange;
+:Update state item dengan nilai input;
+:Re-render komponen;
+
+:User menekan tombol Add;
+:Trigger handleSubmit;
+:Prevent default form submission;
+
+:setItems dengan useImmer;
+:Masuk ke dalam draft function;
+:Push item baru ke dalam draft;
+note right
+  draft.push({
+    id: Date.now(),
+    name: item,
+    completed: false
+  })
+endnote
+
+:Set item kembali ke string kosong;
+:Re-render komponen;
+:Tampilkan daftar item terbaru;
+
+if (Array items tidak kosong?) then (ya)
+  :Tampilkan semua item dalam list;
+  note right
+    items.map((item) => (
+      <li key={item.id}>{item.name}</li>
+    ))
+  endnote
+else (tidak)
+  :Tidak menampilkan apa-apa;
+endif
+
+stop
+
+@enduml

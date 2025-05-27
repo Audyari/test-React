@@ -1,0 +1,59 @@
+@startuml React State Sharing - Implementasi
+
+skinparam monochrome true
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam roundcorner 5
+
+title Alur Berbagi State Antar Komponen (Implementasi)
+
+start
+
+:Render Komponen Task (Parent);
+note right
+  State:
+  - items: [] (array kosong)
+endnote
+
+:Render TaskForm;
+note right
+  State Lokal:
+  - item: "" (string kosong)
+  Menerima props:
+  - onSubmit (handleAddItem)
+endnote
+
+:Render TaskList;
+note right
+  Menerima props:
+  - items: [] (dari parent)
+endnote
+
+:User mengetik di input TaskForm;
+:Trigger handleChange;
+:Update state item di TaskForm;
+:Re-render TaskForm;
+
+:User menekan tombol Add;
+:Trigger handleSubmit;
+:Prevent default form submission;
+
+:Trigger props.onSubmit(item);
+note right
+  Memanggil handleAddItem
+  di komponen Task
+endnote
+
+:handleAddItem membuat item baru;
+:Update state items di Task;
+:Re-render Task dan anak-anaknya;
+
+:TaskForm menerima re-render;
+:Input dikosongkan (setItem(""));
+
+:TaskList menerima items terbaru;
+:Render daftar item yang diperbarui;
+
+stop
+
+@enduml

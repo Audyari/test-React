@@ -27,7 +27,9 @@ export default defineConfig({
         state: "State.html",
         snapshot: "Snapshot.html",
         state_updates: "StateUpdates.html",
-        object_di_state: "ObjectdiState.html"
+        object_di_state: "ObjectdiState.html",
+        array_di_state: "ArraydiState.html",
+        sharing_state: "SharingState.html"
       }
     }
   }
