@@ -1,19 +1,22 @@
-import { useState } from "react";
+
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
+import { useImmer } from "use-immer";
 
 export default function Task() {
-    const [items, setItems] = useState([]);
+    const [items, updateItems] = useImmer([]);
 
     function handleAddItem(newItem) {
-        setItems([...items, {
-          id: Date.now(),
-          name: newItem,
-          completed: false
-        }]);
+        updateItems(draft => {
+          draft.push({
+            id: Date.now(),
+            name: newItem,
+            completed: false
+          });
+        });
       }
 
-    console.log(items);
+    //console.log(items);
     return (
        <>
        <TaskForm onSubmit={handleAddItem} />

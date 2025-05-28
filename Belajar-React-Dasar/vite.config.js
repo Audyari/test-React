@@ -29,7 +29,9 @@ export default defineConfig({
         state_updates: "StateUpdates.html",
         object_di_state: "ObjectdiState.html",
         array_di_state: "ArraydiState.html",
-        sharing_state: "SharingState.html"
+        sharing_state: "SharingState.html",
+        mempertahankan_state: "MempertahankanState.html",
+        reset_state: "ResetState.html"
       }
     }
   }

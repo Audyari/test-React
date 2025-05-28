@@ -1,0 +1,29 @@
+@startuml
+title CounterApp3 Flowchart
+
+start
+
+:Render CounterApp3;
+
+if (Checkbox changed?) then (yes)
+  :Toggle show2 state;
+  if (show2 is true) then
+    :Show Counter key="2";
+  else
+    :Show Counter key="1";
+  endif
+endif
+
+:Render Counter Component;
+
+if (Increment clicked?) then (yes)
+  :count = count + 1;
+else if (Decrement clicked?) then (yes)
+  :count = count - 1;
+else if (Reset clicked?) then (yes)
+  :count = 0;
+endif
+
+stop
+
+@enduml

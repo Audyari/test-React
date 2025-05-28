@@ -1,0 +1,92 @@
+@startuml Mempertahankan State di React
+
+skinparam monochrome true
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam roundcorner 5
+
+title Alur Mempertahankan State di React
+
+start
+
+:1. Aplikasi Dimuat;
+:2. Render CounterApp;
+note right
+  - State show2 = true
+  - State show3 = true
+endnote
+
+:3. Render Counter Pertama;
+note right
+  <Counter name="Counter 1" />
+  - State count = 0
+  - Posisi di tree: #1
+endnote
+
+:4. Render Counter Kedua (karena show2 = true);
+note right
+  {show2 && <Counter name="Counter 2" />}
+  - State count = 0
+  - Posisi di tree: #2
+endnote
+
+:5. Render Conditional Counter;
+note right
+  {show3 ? <Counter name="Counter 2" /> 
+   : <Counter name="Counter 1" />}
+  - Menampilkan Counter 2
+  - State count = 0
+  - Posisi di tree: #3
+endnote
+
+:6. User Klik Checkbox Pertama (show2);
+if (Checkbox dicentang?) then (Ya)
+  :Tampilkan Counter 2 (posisi #2);
+  note right
+    Counter baru dengan state count = 0
+  endnote
+else (Tidak)
+  :Sembunyikan Counter 2 (posisi #2);
+  note right
+    State count = 0 dihancurkan
+  endnote
+endif
+
+:7. User Klik Checkbox Kedua (show3);
+if (Checkbox dicentang?) then (Ya)
+  :Tampilkan Counter 2 (posisi #3);
+  note right
+    Counter baru dengan state count = 0
+  endnote
+else (Tidak)
+  :Tampilkan Counter 1 (bukan Counter 3);
+  note right
+    Tetap di posisi #3
+    State count dipertahankan
+  endnote
+endif
+
+:8. User Klik Tombol Increment;
+if (Counter mana yang diklik?) then (Counter 1)
+  :Update count Counter 1;
+  note right
+    State count bertambah 1
+    (hanya untuk Counter 1)
+  endnote
+else if (Counter 2) then
+  :Update count Counter 2;
+  note right
+    State count bertambah 1
+    (hanya untuk Counter 2)
+  endnote
+else (Counter 3)
+  :Update count Counter 3;
+  note right
+    State count bertambah 1
+    (hanya untuk Counter 3)
+  endnote
+endif
+
+stop
+
+@enduml

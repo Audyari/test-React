@@ -1,20 +1,19 @@
-import { useState } from "react";
+import { useImmer } from "use-immer";
 
 export default function TaskForm({ onSubmit }) {
 
-    const [item, setItem] = useState("");
+    const [item, updateItem] = useImmer("");
 
     function handleChange(e) {
-        setItem(e.target.value);
+        updateItem(e.target.value);
     }
 
     function handleSubmit(e) {
         e.preventDefault();
         onSubmit(item); // Kirim nilai ke parent
-        setItem(""); // Reset input
+        updateItem(""); // Reset input
       }
 
-    console.log(item);
     return (
         <form onSubmit={handleSubmit}>
             <input type="text" value={item} onChange={handleChange} />

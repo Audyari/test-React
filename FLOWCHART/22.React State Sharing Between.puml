@@ -1,59 +1,49 @@
-@startuml React State Sharing - Implementasi
+@startuml Alur Interaksi Task App
 
 skinparam monochrome true
 skinparam defaultFontName Arial
 skinparam defaultFontSize 12
 skinparam roundcorner 5
 
-title Alur Berbagi State Antar Komponen (Implementasi)
+title Alur Interaksi Aplikasi Task
 
 start
 
-:Render Komponen Task (Parent);
+:User membuka halaman;
 note right
-  State:
-  - items: [] (array kosong)
+  - Form input kosong
+  - Daftar tugas kosong
 endnote
 
-:Render TaskForm;
-note right
-  State Lokal:
-  - item: "" (string kosong)
-  Menerima props:
-  - onSubmit (handleAddItem)
-endnote
-
-:Render TaskList;
-note right
-  Menerima props:
-  - items: [] (dari parent)
-endnote
-
-:User mengetik di input TaskForm;
-:Trigger handleChange;
-:Update state item di TaskForm;
-:Re-render TaskForm;
-
-:User menekan tombol Add;
-:Trigger handleSubmit;
-:Prevent default form submission;
-
-:Trigger props.onSubmit(item);
-note right
-  Memanggil handleAddItem
-  di komponen Task
-endnote
-
-:handleAddItem membuat item baru;
-:Update state items di Task;
-:Re-render Task dan anak-anaknya;
-
-:TaskForm menerima re-render;
-:Input dikosongkan (setItem(""));
-
-:TaskList menerima items terbaru;
-:Render daftar item yang diperbarui;
-
+repeat
+  :User mengetik di input;
+  :TaskForm update state item;
+  note right
+    const [item, updateItem] = useImmer("")
+  endnote
+  
+  :User menekan tombol Add;
+  :Trigger handleSubmit;
+  :e.preventDefault();
+  :Panggil props.onSubmit(item);
+  note right
+    Mengirim ke komponen Task
+  endnote
+  
+  :handleAddItem di Task diproses;
+  :useImmer buat draft state;
+  :Tambahkan item baru ke items;
+  note right
+    items = [...items, newItem]
+  endnote
+  
+  :TaskForm reset input;
+  :TaskList render ulang;
+  :Tampilkan item baru di daftar;
+  
+  repeat while (User menambahkan item lagi?) is (Ya)
+  ->Tidak;
+  
 stop
 
 @enduml
