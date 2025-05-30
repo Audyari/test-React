@@ -1,0 +1,42 @@
+@startuml
+title Aplikasi Catatan dengan React Reducer
+
+state "NoteApp (Komponen Utama)" as app {
+  state "State" as state
+  [*] --> state : Inisialisasi notes
+  state --> list : Render NoteList
+  state --> form : Render NoteForm
+}
+
+state "NoteForm" as form {
+  [*] --> form_input
+  form_input : Input teks catatan
+  form_input --> submit : Tekan Enter/Submit
+  submit --> app : handleAddNote(text)
+}
+
+state "NoteList" as list {
+  [*] --> render_notes
+  render_notes --> note_component : Untuk setiap note
+}
+
+state "Note" as note_component {
+  state "Tampilan" as view
+  state "Edit" as edit
+  
+  [*] --> view
+  view --> edit : Klik Edit
+  edit --> view : Klik Simpan\nhandleSave()
+  
+  view --> toggle : Toggle checkbox\nhandleChangeDone()
+  toggle --> app : onChange(note)
+  
+  view --> delete : Klik Hapus\nhandleDelete()
+  delete --> confirm : Konfirmasi
+  confirm --> app : onDelete()\njika Ya
+}
+
+app --> state : setNotes(update)
+state --> list : Re-render
+
+@enduml

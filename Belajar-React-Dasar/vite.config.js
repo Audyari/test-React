@@ -31,7 +31,8 @@ export default defineConfig({
         array_di_state: "ArraydiState.html",
         sharing_state: "SharingState.html",
         mempertahankan_state: "MempertahankanState.html",
-        reset_state: "ResetState.html"
+        reset_state: "ResetState.html",
+        reducer: "Reducer.html"
       }
     }
   }
